@@ -1,0 +1,6 @@
+- name: Disable SELinux
+  become: yes
+  ansible.posix.selinux:
+    state: disabled
+  register: selinux_status
+  ignore_errors: yes

@@ -1,0 +1,10 @@
+- name: Epam Ansible Network Interfaces Task Playbook
+  hosts: managed_nodes
+  tasks:
+   - name: Get a list of network interfaces for every virtual machine
+     ansible.builtin.shell: ip addr show
+     register: network_interfaces
+   - name: Print a list of network interfaces for every virtual machine
+     debug:
+       var: network_interfaces.stdout_lines
+   

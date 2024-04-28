@@ -1,0 +1,4 @@
+- name: Task2 Playbook
+  hosts: managed_nodes
+  roles:
+    - common

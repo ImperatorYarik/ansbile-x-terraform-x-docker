@@ -1,0 +1,15 @@
+- name: Install required packages
+  become: yes
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - curl
+    - lsof
+    - mc
+    - nano
+    - tar
+    - unzip
+    - vim
+    - zip
+  ignore_errors: yes

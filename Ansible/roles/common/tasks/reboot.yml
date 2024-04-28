@@ -1,0 +1,4 @@
+- name: reboot
+  become: yes
+  ansible.builtin.reboot:
+  when: selinux_status.changed
