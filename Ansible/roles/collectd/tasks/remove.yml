@@ -1,0 +1,25 @@
+- name: Remove Collectd service
+  ansible.builtin.service:
+    name: collectd
+    state: stopped
+    enabled: no
+  become: yes
+
+- name: Remove Collectd package
+  apt:
+    name: "{{ item }}"
+    state: absent
+  become: yes
+  loop:
+    - collectd
+    - collectd-write_prometheus
+
+
+- name: Remove Collectd confs
+  file:
+    path: "{{ item }}"
+    state: absent
+  become: yes
+  with_items:
+    - /etc/collectd
+    - /etc/collectd.d/

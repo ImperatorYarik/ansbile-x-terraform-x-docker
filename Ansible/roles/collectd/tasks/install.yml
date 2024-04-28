@@ -1,0 +1,12 @@
+- name: Install collectd package and collectd-write_prometheus plugin
+  apt:
+    name: collectd
+    state: latest
+  
+
+  
+- name: Configure collectd
+  template:
+    src: prometheus.conf.j2
+    dest: /etc/collectd/collectd.conf.d/prometheus.conf
+  notify: restart collectd

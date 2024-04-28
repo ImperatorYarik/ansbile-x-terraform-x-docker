@@ -1,0 +1,6 @@
+- name: Task3 install or remove Collectd
+  hosts: managed_nodes
+  vars:
+    role_behavior: "install"  
+  roles:
+    - collectd

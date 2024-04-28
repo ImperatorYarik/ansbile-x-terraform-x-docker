@@ -1,0 +1,4 @@
+- name: Install or remove Collectd based on role behavior variable
+  include_tasks: "{{ role_behavior }}.yml"
+  vars:
+    role_behavior: "install"
